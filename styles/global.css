@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+@plugin "@tailwindcss/typography";
+
+
+@theme {
+    --color-primary: #000000;
+    --color-secondary: #fff;
+    --color-red: #E50914;
+    --color-drop: #FFFFFF10;
+    --color-arrows: #FFFFFF70;
+    --color-details: #2D2D2D;
+    --color-number: #414141;
+    --color-hover-red: #BE000A;
+    --color-card-text: #FFFFFF70;
+    --color-gradient-card: linearGradient(to right, #192247, 210E17)
+}

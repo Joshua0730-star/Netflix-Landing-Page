@@ -1,0 +1,70 @@
+---
+
+---
+
+<div id="gradiente">
+  <div class="line"></div>
+</div>
+
+<style>
+  #gradiente {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 100px;
+    /* margin-top: 6rem; */
+    overflow: hidden;
+  }
+
+  .line {
+    top: 0;
+    left: -50%;
+    width: 200%;
+    margin: auto;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    border: 0.25rem solid transparent;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    border-bottom: none;
+    background: radial-gradient(
+        50% 500% at 50% -420%,
+        rgba(64, 97, 231, 0.4) 80%,
+        rgba(0, 0, 0, 0.1) 100%
+      ),
+      black;
+    background-clip: padding-box;
+  }
+
+  .line::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    margin-top: -0.25rem;
+    border-radius: inherit;
+    background: linear-gradient(
+      to right,
+      rgba(33, 13, 22, 1) 16%,
+      rgba(184, 40, 105, 1),
+      rgba(229, 9, 20, 1),
+      rgba(184, 40, 105, 1),
+      rgba(33, 13, 22, 1) 84%
+    );
+  }
+
+  @media (min-width: 960px) {
+    .line {
+      width: 150%;
+      left: -25%;
+    }
+  }
+
+  @media (min-width: 600px) {
+    .line {
+      width: 180%;
+      left: -40%;
+    }
+  }
+</style>

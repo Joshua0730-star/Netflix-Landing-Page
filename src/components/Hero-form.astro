@@ -1,0 +1,31 @@
+---
+import ArrowRight from "../../public/arrow-right-small.svg";
+import ButtonRed from "./Button-red.astro";
+import InputEmail from "./InputEmail.astro";
+---
+
+<form
+  action=""
+  class="max-w-xl p-3 flex flex-col items-center text-center mb-24"
+>
+  <h1
+    class="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance animate-fade-in-down max-w-md lg:max-w-xl"
+  >
+    Películas y series ilimitadas y mucho más
+  </h1>
+  <p class="mt-2 text-wrap animate-fade-in-down md:text-lg lg:font-medium">
+    A partir de $18,900. Cancela cuando quieras
+  </p>
+  <span class="mt-5 animate-fade-in-down md:text-lg max-w-md"
+    >¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar
+    tu membresía de Netflix</span
+  >
+  <div
+    class="flex p-2 mt-5 max-w-full w-full gap-2 flex-col items-center md:flex-row md:px-1"
+  >
+    <InputEmail />
+    <ButtonRed class="py-3 px-5 md:text-lg lg:py-3 text-lg" text="Comenzar">
+      <ArrowRight class="ml-2 size-3.5 lg:size-4.5" />
+    </ButtonRed>
+  </div>
+</form>

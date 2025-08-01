@@ -1,0 +1,140 @@
+[
+    {
+        "id": 1,
+        "title": "harta",
+        "imgTitle": "../src/assets/img-title-01.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Película",
+            "Thrillers",
+            "Dramas"
+        ],
+        "description": "¿Cuál será la gota que colmará el vaso? Un día terriblemente malo lleva a una madre sola muy trabajadora al límite… y a cometer un sorprendente acto de desesperación.",
+        "img": "../src/assets/img-modals/img-01-modal.webp"
+    },
+    {
+        "id": 2,
+        "title": "el juego del calamar",
+        "imgTitle": "../src/assets/img-title-02.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Serie",
+            "Thrillers",
+            "Dramas"
+        ],
+        "description": "Cientos de jugadores cortos de dinero aceptan una extraña invitación a competir en juegos infantiles. Adentro les espera un premio irresistible... con un riesgo mortal.",
+        "img": "../src/assets/img-modals/img-02-modal.webp"
+    },
+    {
+        "id": 3,
+        "title": "la primera vez",
+        "imgTitle": "../src/assets/img-title-03.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Serie",
+            "Romances",
+            "Dramas"
+        ],
+        "description": "Una misteriosa muchacha llega a un colegio de hombres en la Colombia de los setenta, rompiendo estereotipos, reglas… y uno que otro corazón.",
+        "img": "../src/assets/img-modals/img-03-modal.webp"
+    },
+    {
+        "id": 4,
+        "title": "rescate imposible",
+        "imgTitle": "../src/assets/img-title-04.webp",
+        "tags": [
+            "2024",
+            "16+",
+            "Película",
+            "Accion",
+            "Thrillers"
+        ],
+        "description": "Tras una operación fallida de las Fuerzas Especiales en Filipinas, un soldado novato depende de un piloto de dron de la Fuerza Aérea para sobrevivir en territorio hostil.",
+        "img": "../src/assets/img-modals/img-04-modal.webp"
+    },
+    {
+        "id": 5,
+        "title": "rosario tijeras",
+        "imgTitle": "../src/assets/img-title-05.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Serie",
+            "Dramas"
+        ],
+        "description": "Tras años de sobrevivir en un peligroso barrio bajo, una mujer obsesionada con la venganza se convierte en una leyenda... y una maldición",
+        "img": "../src/assets/img-modals/img-05-modal.webp"
+    },
+    {
+        "id": 6,
+        "title": "olympo",
+        "imgTitle": "../src/assets/img-title-06.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Serie",
+            "Misterios",
+            "Dramas"
+        ],
+        "description": "Tras el desmayo de una nadadora en un centro deportivo de alto rendimiento, Amaia investiga hasta dónde están dispuestos a llegar sus compañeros por su ambición deportiva.",
+        "img": "../src/assets/img-modals/img-06-modal.webp"
+    },
+    {
+        "id": 7,
+        "title": "k.o",
+        "imgTitle": "../src/assets/img-title-07.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Película",
+            "Accion",
+            "Dramas"
+        ],
+        "description": "Un exluchador se enfrenta a la violencia de los bajos fondos de Marsella para encontrar al hijo de un oponente al que, sin querer, mató años atrás en el ring.",
+        "img": "../src/assets/img-modals/img-07-modal.webp"
+    },
+    {
+        "id": 8,
+        "title": "semidulce",
+        "imgTitle": "../src/assets/img-title-08.webp",
+        "tags": [
+            "2025",
+            "10+",
+            "Película",
+            "Comedias"
+        ],
+        "description": "Una pareja sin hijos se enfrenta a una situación complicada cuando un potencial negocio con una marca de bebés los obliga a fingir ser los padres perfectos.",
+        "img": "../src/assets/img-modals/img-08-modal.webp"
+    },
+    {
+        "id": 9,
+        "title": "el gato con botas",
+        "imgTitle": "../src/assets/img-title-09.webp",
+        "tags": [
+            "2022",
+            "7+",
+            "Película",
+            "Comedias",
+            "Infantiles"
+        ],
+        "description": "Cuando sus hazañas legendarias reducen sus nueve vidas a una, el Gato con Botas emprende su aventura más atrevida: la búsqueda de la mágica estrella del deseo.",
+        "img": "../src/assets/img-modals/img-09-modal.webp"
+    },
+    {
+        "id": 10,
+        "title": "ginny y georgia",
+        "imgTitle": "../src/assets/img-title-10.webp",
+        "tags": [
+            "2025",
+            "16+",
+            "Serie",
+            "Comedias",
+            "Dramas"
+        ],
+        "description": "La independiente Georgia y sus hijos, Ginny y Austin, se mudan al norte para empezar de cero, pero encuentran que el camino hacia un nuevo comienzo está lleno de baches.",
+        "img": "../src/assets/img-modals/img-10-modal.webp"
+    }
+]

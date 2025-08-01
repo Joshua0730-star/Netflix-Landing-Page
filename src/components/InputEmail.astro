@@ -1,0 +1,54 @@
+---
+
+---
+
+<div class="relative w-full">
+  <input
+    id="input-email"
+    type="email"
+    autocomplete="email"
+    required
+    minlength="5"
+    maxlength="50"
+    class="py-.5 h-12 px-6 rounded ring ring-arrows w-full text-inherit text-sm md:text-lg"
+  />
+  <label for="input-email" id="label-email" class="text-arrows">Email</label>
+
+  <style>
+    #label-email {
+      position: absolute;
+      top: 10.5px;
+      left: 12px;
+      transition: all 0.3s ease;
+      pointer-events: none;
+    }
+
+    #input-email:focus ~ #label-email,
+    #input-email:valid ~ #label-email {
+      top: 3.2px;
+      left: 22px;
+      font-size: 10px;
+      /* color: #333; */
+    }
+
+    @media (max-width: 478px) {
+      #input-email:focus ~ #label-email,
+      #input-email:valid ~ #label-email {
+        top: 2.5px;
+        left: 26px;
+        font-size: 10px;
+        /* color: #333; */
+      }
+    }
+
+    @media (max-width: 1480px) {
+      #input-email:focus ~ #label-email,
+      #input-email:valid ~ #label-email {
+        top: 1.5px;
+        left: 26px;
+        font-size: 10px;
+        /* color: #333; */
+      }
+    }
+  </style>
+</div>
