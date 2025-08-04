@@ -10,20 +10,22 @@
     required
     minlength="5"
     maxlength="50"
-    class="py-.5 h-12 px-6 rounded ring ring-arrows w-full text-inherit text-sm md:text-lg"
+    class="h-10 lg:h-12 px-6 rounded ring ring-arrows w-full text-inherit text-xs md:text-md font-inherit"
   />
-  <label for="input-email" id="label-email" class="text-arrows">Email</label>
+  <label for="input-email" id="label-email" class="text-zinc-300">Email</label>
 
   <style>
     #label-email {
       position: absolute;
-      top: 10.5px;
+      top: 10px;
       left: 12px;
       transition: all 0.3s ease;
       pointer-events: none;
+      font-size: 12px;
     }
 
     #input-email:focus ~ #label-email,
+    #input-email:valid ~ #label-email,
     #input-email:valid ~ #label-email {
       top: 3.2px;
       left: 22px;
@@ -31,7 +33,10 @@
       /* color: #333; */
     }
 
-    @media (max-width: 478px) {
+    @media (min-width: 478px) {
+      #label-email {
+        font-size: 14px;
+      }
       #input-email:focus ~ #label-email,
       #input-email:valid ~ #label-email {
         top: 2.5px;
