@@ -13,18 +13,23 @@ import InputEmail from "./InputEmail.astro";
   >
     Películas y series ilimitadas y mucho más
   </h1>
-  <p class="mt-2 text-wrap animate-fade-in-down md:text-lg lg:font-medium">
+  <p
+    class="mt-1 text-wrap animate-fade-in-down text-sm md:text-lg lg:font-medium"
+  >
     A partir de $18,900. Cancela cuando quieras
   </p>
-  <span class="mt-5 animate-fade-in-down md:text-lg max-w-md"
+  <span class="mt-2 animate-fade-in-down md:text-lg max-w-md text-sm"
     >¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar
     tu membresía de Netflix</span
   >
   <div
-    class="flex p-2 mt-5 max-w-full w-full gap-2 flex-col items-center md:flex-row md:px-1"
+    class="flex p-2 mt-1 max-w-full w-full gap-2 flex-col items-center md:flex-row md:px-1 justify-center"
   >
     <InputEmail />
-    <ButtonRed class="py-3 px-5 md:text-lg lg:py-3 text-lg" text="Comenzar">
+    <ButtonRed
+      class="py-2 px-5 mt-3 md:mt-0 md:text-lg lg:py-3 text-lg font-semibold"
+      text="Comenzar"
+    >
       <ArrowRight class="ml-2 size-3.5 lg:size-4.5" />
     </ButtonRed>
   </div>
