@@ -1,12 +1,103 @@
 ---
-
+import CardInfo from "@/components/CardInfo.astro";
+import movies from "../../movies.json";
 ---
 
 <section
-  class="w-full flex flex-col items-center justify-center relative overflow-hidden min-w-sm max-w-screen-xl mx-auto -mt-12"
+  class="w-full flex flex-col items-center justify-center relative overflow-hidden min-w-sm max-w-screen-xl mx-auto -mt-16 px-4 z-100"
 >
   <div class="w-full px-4">
     <h3 class="font-medium lg:text-xl">Tendencias</h3>
   </div>
-  <div id="container-slider"></div>
+  <div
+    id="container-slider"
+    class="carousel carousel--scroll-buttons min-w-11/12 w-[80%] max-w-screen-lg"
+  >
+    <ul class="flex w-full h-full gap-x-5">
+      {
+        movies.map(({ imgBackground, id, title }) => (
+          <CardInfo title={title} id={id} img={imgBackground} />
+        ))
+      }
+    </ul>
+  </div>
 </section>
+
+<style>
+  .carousel {
+    overflow-x: scroll;
+    overflow-y: visible;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    anchor-name: --carousel;
+    display: flex;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    gap: 2px;
+    scrollbar-width: none;
+    transition: all 0.3s ease;
+
+    > .carousel__slide {
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+  }
+
+  .carousel--scroll-buttons {
+    &::scroll-button(*) {
+      position: fixed;
+      /* content: ""; */
+      position-anchor: --carousel;
+      margin-block: 1rem;
+      margin-inline: 6px;
+      /* font-family: "Material Symbols Outlined"; */
+      background: var(
+        --color-details
+      ); /* 
+      color: #fff;
+      /* font-variation-settings: */
+      /* "FILL" #fff, */
+      /* "wght" 100,
+        "GRAD" 0,
+        "opsz" 24; */
+
+      /* width: 30px; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 110px;
+      width: 24px;
+
+      border-radius: 8px;
+      /* background-repeat: no-repeat; */
+      mask-repeat: no-repeat;
+      mask-size: contain;
+      mask-position: center;
+
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    &::scroll-button(*):hover {
+      background: var(--color-number);
+    }
+
+    &::scroll-button(right) {
+      position-area: inline-end center;
+      /* content: "arrow_forward" / "Next"; */
+      content: url("../../public/arrow-right-small.svg");
+      /* mask-image: url("../../public/arrow-right-small.svg"); */
+      /* z-index: 100; */
+    }
+
+    &::scroll-button(left) {
+      position-area: inline-start center;
+      /* content: "arrow_back" / "Previous"; */
+      content: url("../../public/arrow-left-small.svg");
+      /* mask-image: url("../../public/arrow-left-small.svg"); */
+    }
+  }
+</style>
