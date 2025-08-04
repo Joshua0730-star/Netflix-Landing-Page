@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  id: number;
+  img: string;
+}
+
+const { title, id, img } = Astro.props;
+---
+
+<div
+  class="card-info relative w-28 h-36 bg-zinc-500 hover:scale-110 transition-transform duration-150 rounded-lg flex flex-col items-center justify-center"
+>
+  <img
+    src=`${img}`
+    alt=`Imagen de la pelicula ${title}`
+    class="object-cover w-full h-full rounded-lg"
+  />
+</div>
+
+<style>
+  .card-info {
+    /* background: url();  */
+    flex-shrink: 0;
+    border-radius: 8px;
+  }
+</style>
