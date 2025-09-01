@@ -2,27 +2,37 @@
 import ArrowRight from "../../public/arrow-right-small.svg";
 import ButtonRed from "./Button-red.astro";
 import InputEmail from "./InputEmail.astro";
+
+interface Props {
+  title?: string;
+  classesHead?: string;
+  classesChild?: string;
+  subHeading?: string;
+  description: string;
+}
+
+const { title, description, subHeading, classesHead, classesChild } =
+  Astro.props;
 ---
 
 <form
-  class="max-w-xl lg:max-w-screen-md lg:p-1.5 p-3 flex flex-col items-center text-center mb-24"
+  class=`max-w-xl lg:max-w-screen-md lg:p-1.5 p-3 flex flex-col items-center text-center mb-24 ${classesHead}`
 >
   <h1
     class="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance animate-fade-in-down max-w-md lg:max-w-full"
   >
-    Películas y series ilimitadas y mucho más
+    {title}
   </h1>
   <p
     class="mt-1 text-wrap animate-fade-in-down text-sm md:text-base lg:font-medium"
   >
-    A partir de $18,900. Cancela cuando quieras
+    {subHeading}
   </p>
   <span class="mt-2 animate-fade-in-down md:text-base max-w-md text-sm"
-    >¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o reiniciar
-    tu membresía de Netflix</span
+    >{description}</span
   >
   <div
-    class="flex p-2 mt-1 max-w-lg w-full gap-2 flex-col items-center md:flex-row md:px-1 justify-center"
+    class=`flex p-2 mt-1 max-w-lg w-full gap-2 flex-col items-center md:flex-row md:px-1 justify-center ${classesChild} im`
   >
     <InputEmail />
     <ButtonRed

@@ -8,6 +8,9 @@ import Preguntas from "../sections/Preguntas.astro";
 import Gradiente from "@/sections/Gradiente.astro";
 import ModalCard from "@/components/ModalCard.astro";
 import Info from "@/sections/Info.astro";
+import ButtonRed from "@/components/Button-red.astro";
+import InputEmail from "@/components/InputEmail.astro";
+import ArrowRight from "../../public/arrow-right-small.svg";
 ---
 
 <Layout>
@@ -19,4 +22,92 @@ import Info from "@/sections/Info.astro";
   </div>
   <Info />
   <Preguntas />
+  <div
+    class="w-full mx-auto max-w-screen-xl px-6 md:px-8 lg:px-12 mt-10 flex flex-col items-center justify-center"
+  >
+    <form
+      class=`w-full max-w-xl sm:max-w-screen-md lg:p-1.5  flex flex-col items-start sm:items-center text-center mb-24 justify-center`
+    >
+      <span
+        class="mt-2 animate-fade-in-down md:text-lg max-w-md text-base text-left sm:text-center"
+        >¿Quieres ver Netflix ya? Ingresa tu email para crear una cuenta o
+        reiniciar tu membresía de Netflix.</span
+      >
+      <div
+        class=`flex py-2 mt-1 max-w-lg w-full gap-x-2 flex-col items-start md:flex-row md:px-1 justify-center md:max-w-screen-lg md:justify-normal`
+      >
+        <div class="relative w-full text-inherit">
+          <input
+            id="input-email"
+            type="email"
+            autocomplete="email"
+            required
+            minlength="5"
+            maxlength="50"
+            class="h-12 lg:h-14 px-6 rounded ring ring-arrows w-full text-inherit text-xs md:text-md font-inherit grow shrink basis-sm"
+          />
+          <label for="input-email" id="label-email" class="text-zinc-400"
+            >Email</label
+          >
+
+          <style>
+            #label-email {
+              position: absolute;
+              font-weight: 500;
+              top: 14px !important;
+              left: 12px;
+              transition: all 0.3s ease;
+              pointer-events: none;
+              font-size: 12px;
+              font-family: "Netflix Sans", sans-serif;
+            }
+
+            #input-email:focus ~ #label-email,
+            #input-email:valid ~ #label-email,
+            #input-email:valid ~ #label-email {
+              top: 3.2px !important;
+              left: 22px;
+              font-size: 10px;
+              /* color: #333; */
+            }
+
+            @media (min-width: 478px) {
+              #label-email {
+                font-size: 14px;
+                top: 8px;
+              }
+              #input-email:focus ~ #label-email,
+              #input-email:valid ~ #label-email {
+                top: 0.4px;
+                left: 26px;
+                font-size: 10px;
+                /* color: #333; */
+              }
+            }
+
+            @media (min-width: 1020px) {
+              #label-email {
+                font-size: 14px;
+                top: 16.5px !important;
+              }
+
+              #input-email:focus ~ #label-email,
+              #input-email:valid ~ #label-email {
+                top: 1.5px;
+                left: 26px;
+                font-size: 10px;
+                /* color: #333; */
+              }
+            }
+          </style>
+        </div>
+        <ButtonRed
+          class="py-3 md:py-[9px] px-5 mt-3 md:mt-0 text-xl lg:py-3.5 md:text-2xl font-medium"
+          text="Comenzar"
+        >
+          <ArrowRight class="ml-2 size-3.5 lg:size-4.5" />
+        </ButtonRed>
+      </div>
+    </form>
+  </div>
 </Layout>
