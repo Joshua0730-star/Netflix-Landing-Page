@@ -91,20 +91,3 @@ import ArrowDown from "$/public/arrow-down.svg";
 
 </style>
 
-<script>
-  const selectLanguageContainer = document.getElementById(
-    "container-select-language"
-  );
-  const selectLanguage = document.getElementById(
-    "select-language"
-  ) as HTMLSelectElement;
-
-  window.addEventListener("click", (event) => {
-    const target = event.target;
-    console.log(target);
-    if (target && target == selectLanguageContainer && selectLanguage) {
-      selectLanguage.click();
-      console.log("click");
-    }
-  });
-</script>

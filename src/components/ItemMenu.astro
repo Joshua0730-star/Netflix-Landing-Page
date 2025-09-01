@@ -1,0 +1,98 @@
+---
+import IconPlus from "../../public/icon-plus-small.svg";
+
+interface Props {
+  question: string;
+  answer: string;
+  id: number;
+}
+
+const { question, answer, id } = Astro.props;
+---
+
+<div class="w-full space-y-0.5 mb-2">
+  <input class="faq-input" type="checkbox" name="faq" id={"faq-" + id} />
+  <label
+    class="faq-label item-button w-full flex justify-between items-center p-4 bg-details text-white text-base hover:bg-neutral-700 transition-all duration-150"
+    for={`faq-${id}`}
+  >
+    <h3>{question}</h3>
+    <IconPlus class="icon w-4 h-4" />
+  </label>
+  <div class="content-item bg-details">
+    {answer}
+  </div>
+</div>
+
+<!-- 
+<button
+      class="item-button w-full flex justify-between items-center p-4 bg-details text-white text-base hover:bg-neutral-700 transition-all duration-150"
+    >
+      <h3>{question}</h3>
+      <IconPlus class="icon w-4 h-4" />
+    </button> -->
+
+<style>
+  .faq-input {
+    display: none;
+  }
+
+  .faq-label {
+    display: flex;
+    /* padding: 1rem; */
+    align-items: center;
+    /* background: #303030; */
+    color: white;
+    cursor: pointer;
+  }
+
+  .faq-label .icon {
+    transition: transform 0.3s;
+  }
+
+  .content-item {
+    background: #303030;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    padding-inline: 1rem;
+
+    /* padding-top: 1rem; */
+    transition: all 250ms cubic-bezier(0.32, 0.94, 0.6, 1);
+    transition-behavior: smooth;
+  }
+
+  .faq-input:checked + .faq-label + .content-item {
+    overflow: hidden;
+
+    visibility: visible;
+    transition: 150ms cubic-bezier(0.32, 0.94, 0.6, 1);
+    transition-behavior: smooth;
+    text-align: left;
+    max-height: 1000px; /* lo que alcance el contenido */
+    /* padding-top: 1rem; */
+    padding: 1rem;
+  }
+  .faq-input:checked + .faq-label .icon {
+    transform: rotate(45deg);
+  }
+</style>
+
+<script>
+  // este script hace que solo uno pueda estar abierto a la vez
+  document.addEventListener("DOMContentLoaded", () => {
+    const checkboxes = document.querySelectorAll(".faq-input");
+
+    checkboxes.forEach((cb) => {
+      cb.addEventListener("change", () => {
+        if (cb.checked) {
+          checkboxes.forEach((other) => {
+            if (other !== cb) {
+              other.checked = false;
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
