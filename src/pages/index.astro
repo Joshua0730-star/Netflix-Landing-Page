@@ -1,15 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import type { APIMovieResponse } from "$/types/ApiMovieResponse";
+import type { MovieShape } from "$/types/MovieShape";
 import movies from "../../movies.json";
 import Header from "../sections/Header.astro";
 import Slider from "../sections/Slider.astro";
 import Preguntas from "../sections/Preguntas.astro";
 import Gradiente from "@/sections/Gradiente.astro";
+import ModalCard from "@/components/ModalCard.astro";
 ---
 
 <Layout>
   <Header />
   <Gradiente />
   <Slider />
+  <div id="container-modals">
+    {movies.map((movie) => <ModalCard movie={movie} />)}
+  </div>
+  <!-- <ModalCard /> -->
 </Layout>

@@ -1,24 +1,22 @@
 ---
 import CardInfo from "@/components/CardInfo.astro";
 import movies from "../../movies.json";
+import ModalCard from "@/components/ModalCard.astro";
 ---
 
+<!-- {movies.map((movie) => <ModalCard movie={movie} />)} -->
 <section
-  class="w-full flex flex-col items-center justify-center relative overflow-hidden min-w-sm max-w-screen-xl mx-auto -mt-16 px-4 z-100"
+  class="relative w-full flex flex-col items-center justify-center overflow-hidden min-w-sm max-w-screen-xl mx-auto -mt-16 px-7 z-100"
 >
-  <div class="w-full px-4">
+  <div class="w-full px-4 mb-2">
     <h3 class="font-medium lg:text-xl">Tendencias</h3>
   </div>
   <div
     id="container-slider"
     class="carousel carousel--scroll-buttons min-w-11/12 w-[80%] max-w-screen-lg"
   >
-    <ul class="flex w-full h-full gap-x-5">
-      {
-        movies.map(({ imgBackground, id, title }) => (
-          <CardInfo title={title} id={id} img={imgBackground} />
-        ))
-      }
+    <ul id="container-movies" class="flex w-full h-full gap-x-5">
+      {movies.map((movie) => <CardInfo movie={movie} />)}
     </ul>
   </div>
 </section>
@@ -26,16 +24,16 @@ import movies from "../../movies.json";
 <style>
   .carousel {
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     anchor-name: --carousel;
     display: flex;
-    position: relative;
+    /* position: relative; */
     padding: 0;
     margin: 0;
-    gap: 2px;
+    /* gap: 2px; */
     scrollbar-width: none;
     transition: all 0.3s ease;
 
@@ -78,9 +76,20 @@ import movies from "../../movies.json";
 
       border: none;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
     }
 
+    &::scroll-button(*):disabled {
+      opacity: 0;
+    }
+
+    &::scroll-button(left):disabled {
+      transform: translateX(-100%);
+    }
+
+    &::scroll-button(right):disabled {
+      transform: translateX(100%);
+    }
     &::scroll-button(*):hover {
       background: var(--color-number);
     }

@@ -1,0 +1,159 @@
+---
+import ButtonRed from "./Button-red.astro";
+import ArrowRight from "../../public/arrow-right-small.svg";
+import IconPlus from "../../public/icon-plus-small.svg";
+import type { MovieShape } from "$/types/MovieShape";
+interface Props {
+  movie: MovieShape;
+}
+
+const { movie } = Astro.props;
+const { description, id, imgBackground, imgModal, imgTitle, tags, title } =
+  movie;
+---
+
+<dialog
+  class="modal-card w-full max-w-lg md:w-[540px] md:h-[428px] lg:h-[458px] max-h-[468px] h-[430px] bg-zinc-900 text-white text-center flex flex-col items-center justify-between rounded-md shadow-2xl shadow-zinc-700/50 overflow-y-auto overflow-x-hidden backdrop-brightness-25 pb-3 m-auto hidden inset-0 px-0 md:px-0"
+  data-id={id}
+>
+  <header
+    class="w-full flex flex-col items-center h-[65%] relative header-modal inset"
+  >
+    <div class="gradiente-modal-dark absolute inset-0 w-full h-full"></div>
+    <div
+      class="container-close-icon z-30 rounded-full right-4 absolute top-2.5 hover:bg-neutral-500/40 transition-all duration-150"
+      aria-label="Cerrar modal"
+    >
+      <IconPlus class="rotate-45 p-1.5 size-8 close-icon pointer-events-none" />
+    </div>
+    <div
+      class=`container_header-modal bg-cover bg-center absolute inset-0 bg-gradient-to-b from-zinc-700 to-zinc-900  flex flex-col justify-center py-2 -mx-2 sm:mx-2  `
+      data-url={imgModal}
+      data-id={id}
+    >
+      <div class="w-full h-full flex items-end">
+        <img
+          class="z-50 title_img-modal object-center object-contain w-fit h-fit justify-self-end scale-[.85] relative"
+          data-url-img={imgTitle}
+        />
+      </div>
+    </div>
+  </header>
+  <footer class="px-3">
+    <main class="flex items-end justify-start gap-x-1 mb-3">
+      {
+        tags.map((tag) => (
+          <span class="tag text-zinc-300 rounded-sm p-1 text-[10px] bg-zinc-700 ">
+            {tag}
+          </span>
+        ))
+      }
+    </main>
+    <div
+      class="text-xs font-light w-full text-left leading-3.5 mb-3 text-pretty max-w-md lg:leading-4 text-inherit"
+    >
+      <p>{description}</p>
+    </div>
+    <div>
+      <ButtonRed
+        text="Comienza Ya"
+        class="w-full md:w-fit md:font-normal md:py-2.5 lg:py-2.5 lg:font-normal"
+      >
+        <ArrowRight class="ml-2 size-3.5 lg:size-4.5" />
+      </ButtonRed>
+    </div>
+  </footer>
+</dialog>
+
+<style>
+  .gradiente-modal-dark {
+    background: linear-gradient(
+        40deg,
+        rgb(22, 22, 22, 0.45) 24.16%,
+        rgba(6, 10, 23, 0.2) 56.61%
+      ),
+      linear-gradient(
+        0deg,
+        rgb(22, 22, 22, 0.2) 3.91%,
+        rgba(6, 10, 23, 0.1) 69.26%
+      );
+    z-index: 30;
+  }
+  dialog {
+    font-family: "Netflix Sans", sans-serif;
+    z-index: 100;
+  }
+
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(0.8px);
+  }
+</style>
+
+<script>
+  const modalCardsAll = document.querySelectorAll(".modal-card");
+  console.log(modalCardsAll);
+  const containerHeaderModal = document.querySelectorAll(
+    ".container_header-modal"
+  );
+
+  const elementCards = document.querySelectorAll(".img");
+  const titleImgModal = document.querySelectorAll(".title_img-modal");
+  const containerModals = document.querySelector("#container-modals");
+
+  elementCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      const { id } = card.dataset;
+
+      // Buscar el dialog correspondiente
+
+      const modal = containerModals?.querySelector(
+        `.modal-card[data-id="${id}"]`
+      ) as HTMLDialogElement;
+
+      modal.classList.remove("hidden");
+      modal?.showModal();
+      document.body.style.overflow = "hidden"; // Bloquea scrol
+
+      const closeIcon = modal?.querySelector(".container-close-icon");
+      closeIcon?.addEventListener("click", (e) => {
+        console.log(e.target);
+        modal?.close();
+        document.body.style.overflow = "auto";
+        modal.classList.add("hidden");
+      });
+
+      window.addEventListener("click", (e) => {
+        const currentTarget = e.target as HTMLElement;
+        const card = document.querySelector(`.img[data-id="${id}"]`);
+        if (modal.contains(currentTarget) && currentTarget !== card) {
+          modal.close();
+          document.body.style.overflow = "auto";
+          modal.classList.add("hidden");
+        }
+      });
+    });
+  });
+
+  // Asignar la ruta adecauda a la imagen de la modal
+
+  // 1) buscar el elemento de esa id
+  containerHeaderModal.forEach((container) => {
+    const { id, url: path } = container.dataset;
+    // console.log({ id,url});
+
+    // 2) asignar la ruta de la imagen
+    container.style.backgroundImage = `url(${path})`;
+  });
+
+  // Imagen del titulo de la modal
+
+  titleImgModal.forEach((title) => {
+    const { urlImg } = title.dataset;
+    // console.log(urlImg);
+    title.src = `${urlImg}`;
+  });
+  // modalCardsAll[0].style.display = "flex";
+
+  // Interceptar el evento en la card correspondiente
+</script>

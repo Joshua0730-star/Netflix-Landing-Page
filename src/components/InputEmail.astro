@@ -2,7 +2,7 @@
 
 ---
 
-<div class="relative w-full">
+<div class="relative w-full text-inherit">
   <input
     id="input-email"
     type="email"
@@ -12,16 +12,18 @@
     maxlength="50"
     class="h-10 lg:h-12 px-6 rounded ring ring-arrows w-full text-inherit text-xs md:text-md font-inherit"
   />
-  <label for="input-email" id="label-email" class="text-zinc-300">Email</label>
+  <label for="input-email" id="label-email" class="text-zinc-400">Email</label>
 
   <style>
     #label-email {
       position: absolute;
+      font-weight: 500;
       top: 10px;
       left: 12px;
       transition: all 0.3s ease;
       pointer-events: none;
       font-size: 12px;
+      font-family: "Netflix Sans", sans-serif;
     }
 
     #input-email:focus ~ #label-email,
@@ -36,17 +38,23 @@
     @media (min-width: 478px) {
       #label-email {
         font-size: 14px;
+        top: 8px;
       }
       #input-email:focus ~ #label-email,
       #input-email:valid ~ #label-email {
-        top: 2.5px;
+        top: 0.4px;
         left: 26px;
         font-size: 10px;
         /* color: #333; */
       }
     }
 
-    @media (max-width: 1480px) {
+    @media (min-width: 1020px) {
+      #label-email {
+        font-size: 14px;
+        top: 12.5px;
+      }
+
       #input-email:focus ~ #label-email,
       #input-email:valid ~ #label-email {
         top: 1.5px;

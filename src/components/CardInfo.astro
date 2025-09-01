@@ -1,27 +1,116 @@
 ---
+import type { MovieShape } from "$/types/MovieShape";
+import ModalCard from "./ModalCard.astro";
 interface Props {
-  title: string;
-  id: number;
-  img: string;
+  movie: MovieShape;
 }
 
-const { title, id, img } = Astro.props;
+const { movie } = Astro.props;
+const { id } = movie;
 ---
 
-<div
-  class="card-info relative w-28 h-36 bg-zinc-500 hover:scale-110 transition-transform duration-150 rounded-lg flex flex-col items-center justify-center"
->
-  <img
-    src=`${img}`
-    alt=`Imagen de la pelicula ${title}`
-    class="object-cover w-full h-full rounded-lg"
-  />
-</div>
+<div class="relative w-full">
+  <li
+    class="card-info relative w-[102px] h-36 bg-zinc-500 transition-transform duration-150 flex flex-col items-center justify-center cursor-pointer md:w-[140px] md:h-[196px] lg:w-[180px] lg:h-[252px]"
+    style={`--img-id: ${id}`}
+    role="button"
+  >
+    <span
+      role="img"
+      class=`absolute inset-0 rounded-lg  bg-center bg-cover img img-${id} transition-all duration-150 ease-out `
+      data-id={id}></span>
+  </li>
 
-<style>
-  .card-info {
-    /* background: url();  */
-    flex-shrink: 0;
-    border-radius: 8px;
-  }
-</style>
+  <style>
+    .card-info {
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    .img {
+      text-shadow: 0 0 1.5rem rgba(1, 1, 1, 1);
+      -webkit-text-stroke: 0.12rem rgb(255, 255, 255);
+      font-weight: 700;
+      color: var(--color-number);
+      line-height: 1;
+      display: inline-block;
+      font-size: 3.25rem;
+      font: inherit;
+      overflow: visible;
+    }
+    .img::before {
+      content: attr(data-id);
+      position: absolute;
+      font-size: 3.75rem;
+      font-family: "Netflix Sans";
+      font-weight: 700;
+      color: var(--color-number);
+      -webkit-text-fill-color: rgb(0, 0, 0);
+      /* -webkit-text-stroke: 0; */
+      position: absolute;
+      bottom: 10%;
+      left: -12.5%;
+      width: 40px;
+      height: 64px;
+      z-index: 1000;
+    }
+
+    @media (min-width: 768px) {
+      .img {
+        --webkit-text-stroke: 0.8rem rgb(255, 255, 255);
+        font-weight: 700;
+        font-size: 6rem;
+      }
+      .img::before {
+        font-size: 6rem;
+        font-weight: 700;
+        bottom: 28%;
+      }
+    }
+    .card-info:hover > span {
+      filter: brightness(0.7);
+      background-size: cover;
+    }
+  </style>
+
+  <script>
+    import movies from "../../movies.json";
+    const imgs = document.querySelectorAll(".img");
+    const cards = document.querySelectorAll(".card-info");
+    let movie;
+
+    imgs.forEach((img, index) => {
+      const { id } = img.dataset;
+      const path = pathImg(id);
+      img.style.backgroundImage = `url(${path})`;
+      // console.log(id);
+
+      img.addEventListener("click", (e) => {
+        const { target } = e;
+        const id = target?.dataset.id;
+        movie = searchMovie(id);
+
+        // console.log(id);
+      });
+    });
+
+    // Renderizar la modal correspondiente a la pelicula respecto a su id
+    export function searchMovie(id: number) {
+      // Hacer la busqueda de esa pelicula
+
+      const movie = movies.find((movie) => movie.id == id);
+      if (!movie) return;
+
+      return movie;
+    }
+
+    // Generar el path de las imagenes
+    function pathImg(id: string) {
+      const numberId = id.padStart(2, "0");
+      return `../src/assets/img-cards/img-${numberId}.webp`;
+    }
+
+    // tema de la modal
+    // const modalCards = document.querySelectorAll(".modal-card");
+  </script>
+</div>

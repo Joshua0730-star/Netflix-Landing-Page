@@ -1,0 +1,47 @@
+---
+const infoAdditional = [
+  {
+    title: "Disfruta en tu TV",
+    description:
+      "Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.",
+    img: "/television-small.svg",
+  },
+  {
+    title: "Descarga tus series para verlas offline",
+    description:
+      "Guarda tu contenido favorito y siempre tendrás algo para ver.",
+    img: " /download-small.svg",
+  },
+  {
+    title: " Disfruta donde quieras",
+    description:
+      " Películas y series ilimitadas en tu teléfono, tablet, laptop y TV.",
+    img: " /telescope-small.svg",
+  },
+  {
+    title: "Crea perfiles para niños",
+    description:
+      " Los niños vivirán aventuras con sus personajes favoritos en un espacio diseñado exclusivamente para ellos, gratis con tu membresía.",
+    img: " /profiles-small.svg",
+  },
+];
+
+import AddInfo from "@/components/AddInfo.astro";
+---
+
+<div
+  class="flex flex-col items-center justify-center mt-14 px-4 z-50 md:px-8 lg:px-12 max-w-screen-xl mx-auto"
+>
+  <div class="w-full font-medium mb-2 md:text-xl">
+    <h3>Más motivos para unirte</h3>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
+    {infoAdditional.map((card) => <AddInfo {...card} />)}
+  </div>
+</div>
+
+<style>
+  div {
+    font-family: "Netflix Sans", sans-serif;
+  }
+</style>
