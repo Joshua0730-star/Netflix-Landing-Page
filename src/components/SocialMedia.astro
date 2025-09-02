@@ -1,0 +1,25 @@
+---
+interface Props {
+  title: string;
+  icon: string;
+  url: string;
+}
+
+const { title, icon, url } = Astro.props;
+---
+
+<a
+  href={url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group hover:inline-block"
+>
+  <div class="flex flex-col items-center gap-1 justify-evenly text-center px-2">
+    <img
+      src={icon}
+      alt={title}
+      class="size-6 md:size-8 lg:size-10 group-hover:scale-105 transition-transform duration-150"
+    />
+    <span slot="down">{title}</span>
+  </div></a
+>

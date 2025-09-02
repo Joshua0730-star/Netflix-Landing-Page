@@ -13,12 +13,11 @@ import "../../styles/global.css";
     <title>Netflix Landing</title>
   </head>
   <body>
-    <main id="container-main">
-      <div class="fixed inset-0 -z-10 bg-black"></div>
-      <slot />
-      <div aria-hidden id="gradiente">…</div>
-      <img src="/bg-netflix.jpg" alt="Background de Netflix" id="bg-netflix" />
-    </main>
+    <div class="fixed inset-0 -z-10 bg-black"></div>
+    <slot />
+    <div aria-hidden id="gradiente">…</div>
+    <img src="/bg-netflix.jpg" alt="Background de Netflix" id="bg-netflix" />
+
     <!-- <Preguntas /> -->
   </body>
 </html>
@@ -53,6 +52,7 @@ import "../../styles/global.css";
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    justify-content: space-evenly;
   }
 
   #bg-netflix {

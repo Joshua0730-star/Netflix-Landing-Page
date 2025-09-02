@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import type { MovieShape } from "$/types/MovieShape";
 import movies from "../../movies.json";
 import Header from "../sections/Header.astro";
 import Slider from "../sections/Slider.astro";
@@ -9,8 +8,9 @@ import Gradiente from "@/sections/Gradiente.astro";
 import ModalCard from "@/components/ModalCard.astro";
 import Info from "@/sections/Info.astro";
 import ButtonRed from "@/components/Button-red.astro";
-import InputEmail from "@/components/InputEmail.astro";
 import ArrowRight from "../../public/arrow-right-small.svg";
+
+import Footer from "../sections/Footer.astro";
 ---
 
 <Layout>
@@ -34,7 +34,7 @@ import ArrowRight from "../../public/arrow-right-small.svg";
         reiniciar tu membresía de Netflix.</span
       >
       <div
-        class=`flex py-2 mt-1 max-w-lg w-full gap-x-2 flex-col items-start md:flex-row md:px-1 justify-center md:max-w-screen-lg md:justify-normal`
+        class=`flex py-2 mt-1 max-w-lg w-full gap-x-2 flex-col items-start md:flex-row md:items-center sm:px-1 justify-center md:max-w-screen-lg sm:justify-center`
       >
         <div class="relative w-full text-inherit">
           <input
@@ -102,7 +102,7 @@ import ArrowRight from "../../public/arrow-right-small.svg";
           </style>
         </div>
         <ButtonRed
-          class="py-3 md:py-[9px] px-5 mt-3 md:mt-0 text-xl lg:py-3.5 md:text-2xl font-medium"
+          class="py-3 md:py-[9px] px-5 mt-3 md:mt-0 text-lg lg:py-3.5 md:text-xl lg:text-2xl font-medium"
           text="Comenzar"
         >
           <ArrowRight class="ml-2 size-3.5 lg:size-4.5" />
@@ -110,4 +110,5 @@ import ArrowRight from "../../public/arrow-right-small.svg";
       </div>
     </form>
   </div>
+  <Footer />
 </Layout>
