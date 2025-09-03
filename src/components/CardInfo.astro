@@ -85,24 +85,24 @@ const { id } = movie;
       img.style.backgroundImage = `url(${path})`;
       // console.log(id);
 
-      img.addEventListener("click", (e) => {
-        const { target } = e;
-        const id = target?.dataset.id;
-        movie = searchMovie(id);
+      // img.addEventListener("click", (e) => {
+      //   const { target } = e;
+      //   const id = target?.dataset.id;
+      //   // movie = searchMovie(id);
 
-        // console.log(id);
-      });
+      //   // console.log(id);
+      // });
     });
 
     // Renderizar la modal correspondiente a la pelicula respecto a su id
-    export function searchMovie(id: number) {
-      // Hacer la busqueda de esa pelicula
+    // export function searchMovie(id: number) {
+    //   // Hacer la busqueda de esa pelicula
 
-      const movie = movies.find((movie) => movie.id == id);
-      if (!movie) return;
+    //   const movie = movies.find((movie) => movie.id == id);
+    //   if (!movie) return;
 
-      return movie;
-    }
+    //   return movie;
+    // }
 
     // Generar el path de las imagenes
     function pathImg(id: string) {

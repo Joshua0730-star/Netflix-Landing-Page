@@ -2,14 +2,22 @@
 import ButtonRed from "./Button-red.astro";
 import ArrowRight from "../../public/arrow-right-small.svg";
 import IconPlus from "../../public/icon-plus-small.svg";
+import { backgroundModals, TITLE_MODALS } from "@/lib/images";
 import type { MovieShape } from "$/types/MovieShape";
+
 interface Props {
   movie: MovieShape;
 }
 
 const { movie } = Astro.props;
-const { description, id, imgBackground, imgModal, imgTitle, tags, title } =
-  movie;
+const { description, id, tags, title } = movie;
+
+// Identificar las imagenes correspondientes a la id
+
+const numberId = id.toString().padStart(2, "0");
+
+const PATH_IMG_BACKGROUND = backgroundModals[numberId];
+const PATH_IMG_TITLE = TITLE_MODALS[numberId];
 ---
 
 <dialog
@@ -28,13 +36,13 @@ const { description, id, imgBackground, imgModal, imgTitle, tags, title } =
     </div>
     <div
       class=`container_header-modal bg-cover bg-center absolute inset-0 bg-gradient-to-b from-zinc-700 to-zinc-900  flex flex-col justify-center py-2 -mx-2 sm:mx-2  `
-      data-url={imgModal}
+      style={`background-image: url(${PATH_IMG_BACKGROUND});`}
       data-id={id}
     >
       <div class="w-full h-full flex items-end">
         <img
           class="z-50 title_img-modal object-center object-contain w-fit h-fit justify-self-end scale-[.85] relative"
-          data-url-img={imgTitle}
+          data-url-img={PATH_IMG_TITLE}
         />
       </div>
     </div>
