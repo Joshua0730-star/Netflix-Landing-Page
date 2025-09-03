@@ -16,8 +16,11 @@ const { description, id, tags, title } = movie;
 
 const numberId = id.toString().padStart(2, "0");
 
+// console.log(numberId);
 const PATH_IMG_BACKGROUND = backgroundModals[numberId];
 const PATH_IMG_TITLE = TITLE_MODALS[numberId];
+
+// console.log({ PATH_IMG_BACKGROUND, PATH_IMG_TITLE });
 ---
 
 <dialog
@@ -36,13 +39,13 @@ const PATH_IMG_TITLE = TITLE_MODALS[numberId];
     </div>
     <div
       class=`container_header-modal bg-cover bg-center absolute inset-0 bg-gradient-to-b from-zinc-700 to-zinc-900  flex flex-col justify-center py-2 -mx-2 sm:mx-2  `
-      style={`background-image: url(${PATH_IMG_BACKGROUND});`}
+      style={`background-image: url(${PATH_IMG_BACKGROUND.src});`}
       data-id={id}
     >
       <div class="w-full h-full flex items-end">
         <img
           class="z-50 title_img-modal object-center object-contain w-fit h-fit justify-self-end scale-[.85] relative"
-          data-url-img={PATH_IMG_TITLE}
+          src={PATH_IMG_TITLE.src}
         />
       </div>
     </div>
@@ -146,21 +149,21 @@ const PATH_IMG_TITLE = TITLE_MODALS[numberId];
   // Asignar la ruta adecauda a la imagen de la modal
 
   // 1) buscar el elemento de esa id
-  containerHeaderModal.forEach((container) => {
-    const { id, url: path } = container.dataset;
-    // console.log({ id,url});
+  // containerHeaderModal.forEach((container) => {
+  //   const { id, url: path } = container.dataset;
+  //   // console.log({ id,url});
 
-    // 2) asignar la ruta de la imagen
-    container.style.backgroundImage = `url(${path})`;
-  });
+  //   // 2) asignar la ruta de la imagen
+  //   container.style.backgroundImage = `url(${path})`;
+  // });
 
   // Imagen del titulo de la modal
 
-  titleImgModal.forEach((title) => {
-    const { urlImg } = title.dataset;
-    // console.log(urlImg);
-    title.src = `${urlImg}`;
-  });
+  // titleImgModal.forEach((title) => {
+  //   const { urlImg } = title.dataset;
+  //   // console.log(urlImg);
+  //   title.src = `${urlImg}`;
+  // });
   // modalCardsAll[0].style.display = "flex";
 
   // Interceptar el evento en la card correspondiente
